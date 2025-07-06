@@ -296,17 +296,23 @@ function ProductList({ onHomeClick }) {
                                         <div className="product-cost">
                                             {plant.cost}
                                         </div>
+                                        <button
+                                            className="product-button"
+                                            onClick={() => handleAddToCard(plant)}
+                                        >
+                                            Add to Cart
+                                        </button>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     ))}
                 </div>
-                    ) : (
-                    <CartItem onContinueShopping={handleContinueShopping} />
+            ) : (
+                <CartItem onContinueShopping={handleContinueShopping} />
             )}
-                </div>
-            );
+        </div>
+    );
 }
 
-            export default ProductList;
+export default ProductList;

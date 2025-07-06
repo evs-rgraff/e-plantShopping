@@ -287,6 +287,9 @@ function ProductList({ onHomeClick }) {
                                             src={plant.image}
                                             alt={plant.name}
                                         />
+                                        <div className="product-title">
+                                            {plant.name}
+                                        </div>
                                     </div>
                                 ))}
                             </div>

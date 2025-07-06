@@ -294,7 +294,7 @@ function ProductList({ onHomeClick }) {
                                             {plant.description}
                                         </div>
                                         <div className="product-cost">
-                                            ${plant.cost}
+                                            {plant.cost}
                                         </div>
                                     </div>
                                 ))}

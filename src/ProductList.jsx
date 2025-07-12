@@ -11,7 +11,7 @@ function ProductList({ onHomeClick }) {
 
         setAddedToCart((prevState) => ({
             ...prevState,
-            [product.name]:true,
+            [product.name]: true,
         }));
     };
     const plantsArray = [
@@ -241,6 +241,10 @@ function ProductList({ onHomeClick }) {
         fontSize: '30px',
         textDecoration: 'none',
     }
+
+    const calculateTotalQuantity = () => {
+        return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+    };
 
     const handleHomeClick = (e) => {
         e.preventDefault();

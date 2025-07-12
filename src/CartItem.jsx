@@ -7,7 +7,6 @@ const CartItem = ({ onContinueShopping }) => {
     const cart = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
 
-    // Calculate total amount for all products in the cart
     const calculateTotalAmount = () => {
         let total = 0;
         cart.forEach(item => {
@@ -34,12 +33,11 @@ const CartItem = ({ onContinueShopping }) => {
     };
 
     const handleDecrement = (item) => {
-        if (item.quantity > 1) {
-            dispatch(
-                updateQuantity({ name: item.name, quantity: item.quantity - 1 })
-            );
-        } else {
-            dispatch(removeItem({ name: item.name }));
+        const current = cart.find(p => p.name === item.name);
+        if (current && current.quantity > 1) {
+            dispatch(updateQuantity({ name: item.name, quantity: current.quantity - 1 }));
+        } else if (current) {
+            dispatch(removeItem(item.name));
         }
     };
 

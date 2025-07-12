@@ -26,10 +26,15 @@ const CartItem = ({ onContinueShopping }) => {
     };
 
     const handleIncrement = (item) => {
+        dispatch(
+            updateQuantity({ name: item.name, quantity: item.quantity + 1 })
+        );
     };
 
     const handleDecrement = (item) => {
-
+        dispatch(
+            updateQuantity({ name: item.name, quantity: item.quantity - 1 })
+        );
     };
 
     const handleRemove = (item) => {
